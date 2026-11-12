@@ -138,9 +138,6 @@ static bool own_tooltip_mapped(GtkWindow *popup)
 void PopupWindow::topWindowActiavate(wxActivateEvent &event)
 {
     event.Skip();
-    if (!event.GetActive() && IsShown() && ShouldDismissOnTopWindowDeactivate() &&
-        !(Slic3r::GUI::is_running_on_wayland() && own_tooltip_mapped(GTK_WINDOW(m_widget))))
-        DismissAndNotify();
 }
 #endif
 
